@@ -1,0 +1,9 @@
+services:
+  alma_chatbot:
+    build: .
+    container_name: alma_chatbot
+    volumes:
+      - ./src:/app
+    tty: true
+
+    
