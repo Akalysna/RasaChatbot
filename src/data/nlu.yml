@@ -1,91 +1,79 @@
 version: "3.1"
 
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+  - intent: greeting
+    examples: |
+      - Bonjour
+      - Bonsoir
+      - Salut
+      - Slt
+      - Salut à toi
+    
 
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: goodbye
+    examples: |
+      - Au revoir
+      - Bye
+      - Merci au revoir
+      - Au revoir et merci
+      - Merci et bonne journnée 
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: ask_menu
+    examples: |
+      - Est ce que je pourais voir la carte s'il vous plait
+      - Peux tu me donnée le menu ? 
+      - Je veux voir le menu
+      - Donne moi la carte de la pizzeria s'il te plait
+      - Quel pizza proposé vous ? 
+      - Quel pizza vendez-vous ?
+      - Qui a t'il à la carte ? 
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+  - intent: ask_price
+    examples: |
+      - Quel est le prix de la pizza [trois fromage](pizza)
+      - Combien coûte la pizza [chèvre-miel](pizza)
+      - Prix de la pizza [montagnarde](pizza)
+      - Quel est le prix de la pizza [calzone](pizza)
 
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+
+  - intent: ask_schedule
+    examples: |
+      - Quand est ouvert la pizzeria ?
+      - Quand est fermé la pizzeria ?
+      - Quand est ouvert la pizzeria aujourd'hui ?
+      - Quand est ouvert la pizzeria demain ?
+      - Quand est ouvert la pizzeria ce soir ?
+      - A quelle heure ouvre la pizzeria ?
+      - Est ce que la pizzeria est ouverte ? 
+      - Est ce que la pizzeria est fermée ?
+      - Quel sont les horaires de la pizzeria ? 
+      - A quelle heure ça ouvre
+      - Donne moi les horaires
+      - Ca ouvre quand ? 
+      - Quand ça ouvre ?
+      
+
+  - intent: place_order
+    examples: |
+      - Je voudrais commander une pizza [trois fromage](pizza)
+      - Je veux passer commande pour une pizza [chèvre-miel](pizza) et deux pizza [montagnarde]
+      - Commande une [regina](pizza)
+      - Je voudrais commander une pizza [trois fromage](pizza) et une pizza [chèvre-miel](pizza)
+      - Est ce que je peux commander une pizza [quatre saisons](pizza) et une pizza [margherita](pizza)
+      - J'aimerais passer commande pour une pizza [hawaïenne](pizza) et une pizza [végétarienne](pizza)
+
+
+  - lookup: pizza
+    examples: |
+      - margherita
+      - regina
+      - quatre saisons
+      - trois fromages
+      - chèvre-miel
+      - montagnarde
+      - calzone
+      - hawaïenne
+      - végétarienne
+      - BBQ poulet

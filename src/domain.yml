@@ -1,33 +1,60 @@
 version: "3.1"
 
 intents:
-  - greet
+  - greeting
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - ask_menu
+  - ask_price
+  - ask_schedule
+  - place_order
+
+entities:
+  - pizza
+
+slots:
+  pizza:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: pizza
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_greeting:
+  - text: "Bonjour ! Bienvenue chez Pizza Rasa. Comment puis-je vous aider ?"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Au revoir ! Merci de votre visite !"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_ask_menu:
+  - text: | 
+      Bien sûr ! Voici notre menu :
+        1. Margherita
+        2. Regina
+        3. Quatre saisons
+        4. Trois fromages
+        5. Chèvre-miel
+        6. Montagnarde
+        7. Calzone
+        8. Hawaïenne
+        9. Végétarienne
+        10. BBQ poulet"
+
+  utter_ask_price_fromage:
+  - text: "Le prix de la pizza trois fromages est de 10€."
+
+  utter_ask_price_montagnard:
+  - text: "Le prix de la pizza montagnarde est de 12€."
+
+  utter_ask_schedule:
+  - text: |
+      La pizzeria est ouverte de 10h à 22h du lundi au vendredi et de 11h à 00h le samedi
+      Vous pouvez nous contacter au 06 12 34 56 78 jusqu'a une avant l'ouverture et durant le service.
+
+  utter_place_order:
+  - text: |
+      Très bien, vous avez commandé une pizza {pizza}.
+      Merci pour votre commande !
 
 session_config:
   session_expiration_time: 60
