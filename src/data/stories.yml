@@ -11,8 +11,6 @@ stories:
       - intent: goodbye
       - action: utter_short_conversation
 
-  
-
   - story: User need schedule information
     steps:
       # Saluer l'utilisateur
@@ -104,24 +102,12 @@ stories:
         - intent: goodbye
       - action: utter_goodbye
 
-  # - story: Ask price fromage
-  #   steps:
-  #     # Saluer l'utilisateur
-  #     - intent: greeting
-  #     - action: utter_greeting
-  #     # Demander le prix de la pizza fromage
-  #     - intent: ask_price 
-  #     - slot_was_set:
-  #       - pizza: "trois fromages"
-  #     - action: utter_ask_price_fromage
+  - story: Ask order
+    steps:
+      # Saluer l'utilisateur
+      - intent: greeting
+      - action: utter_greeting
 
-  # - story: Ask price montagnarde
-  #   steps:
-  #     # Saluer l'utilisateur
-  #     - intent: greeting
-  #     - action: utter_greeting
-  #     # Demander le prix de la pizza montagnarde
-  #     - intent: ask_price 
-  #     - slot_was_set:
-  #       - pizza: "montagnarde"
-  #     - action: utter_ask_price_montagnard
+      # Demander la commande d'une pizza
+      - intent: place_order 
+      - action: action_tell_order

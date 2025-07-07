@@ -24,7 +24,8 @@ rules:
     - action: action_tell_pizza_price
     wait_for_user_input: false
 
-  - rule: Place order
+  - rule: Thank user
     steps:
-    - intent: place_order
-    - action: utter_place_order
+    - intent: thanks
+    - action: utter_thanks_information
+    wait_for_user_input: false
