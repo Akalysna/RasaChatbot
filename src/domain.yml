@@ -7,6 +7,10 @@ intents:
   - ask_price
   - ask_schedule
   - place_order
+  - thanks
+  - affirmation
+  - denial
+  - action_tell_pizza_price
 
 entities:
   - pizza
@@ -26,6 +30,21 @@ responses:
   utter_goodbye:
   - text: "Au revoir ! Merci de votre visite !"
 
+  utter_short_conversation:
+  - text: "Cette conversation fut courte, j'espère que vous avez trouvé ce que vous cherchiez !"
+
+  utter_thanks_information:
+  - text: "Il n'y a pas de quoi. Désirez-vous d'autre information ?"
+
+  utter_thanks_order:
+  - text: "Merci pour votre commande !"
+
+  utter_another_question:
+  - text: "Désirez-vous d'autre information ?"
+
+  utter_ask_question:
+  - text: "Que souhaitez-vous savoir ?"
+
   utter_ask_menu:
   - text: | 
       Bien sûr ! Voici notre menu :
@@ -40,11 +59,8 @@ responses:
         9. Végétarienne
         10. BBQ poulet"
 
-  utter_ask_price_fromage:
-  - text: "Le prix de la pizza trois fromages est de 10€."
-
-  utter_ask_price_montagnard:
-  - text: "Le prix de la pizza montagnarde est de 12€."
+  utter_ask_price:
+  - text: "Le prix de la pizza {pizza} est de {price}€."
 
   utter_ask_schedule:
   - text: |
@@ -55,6 +71,9 @@ responses:
   - text: |
       Très bien, vous avez commandé une pizza {pizza}.
       Merci pour votre commande !
+
+actions:
+  - action_tell_pizza_price
 
 session_config:
   session_expiration_time: 60

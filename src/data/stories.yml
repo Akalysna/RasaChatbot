@@ -2,29 +2,126 @@ version: "3.1"
 
 stories:
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - story: Short conversation
+    steps: 
+      # Saluer l'utilisateur
+      - intent: greeting
+      - action: utter_greeting
+      # L'utilisateur dit au revoir
+      - intent: goodbye
+      - action: utter_short_conversation
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: User need schedule information
+    steps:
+      # Saluer l'utilisateur
+      - intent: greeting
+      - action: utter_greeting
+      # Demander l'horaires d'ouverture
+      - intent: ask_schedule
+      - action: utter_ask_schedule
+      # Demander si l'utilisateur veut d'autres informations
+      - action: utter_another_question
+      # L'utilisateur dit merci
+      - or:
+        - intent: denial
+        - intent: goodbye
+      - action: utter_goodbye
+
+  - story: User need menu information
+    steps:
+      # Saluer l'utilisateur
+      - intent: greeting
+      - action: utter_greeting
+      # Demander le menu
+      - intent: ask_menu
+      - action: utter_ask_menu
+      # Demander si l'utilisateur veut d'autres informations
+      - action: utter_another_question
+      # L'utilisateur dit décline
+      - or:
+        - intent: denial
+        - intent: goodbye
+      - action: utter_goodbye
+
+  - story: User need schedule and menu information
+    steps:
+      # Saluer l'utilisateur
+      - intent: greeting
+      - action: utter_greeting
+
+      # Demander l'horaires d'ouverture
+      - intent: ask_schedule
+      - action: utter_ask_schedule
+
+      # Demander si l'utilisateur veut d'autres informations
+      - action: utter_another_question
+
+      # Demander le menu
+      - intent: ask_menu
+      - action: utter_ask_menu
+
+      # Demander si l'utilisateur veut d'autres informations
+      - action: utter_another_question
+
+      # L'utilisateur dit décline
+      - or:
+        - intent: denial
+        - intent: goodbye
+      - action: utter_goodbye
+
+  - story: User need schedule and menu information with affirmation response
+    steps:
+
+      # Saluer l'utilisateur
+      - intent: greeting
+      - action: utter_greeting
+
+      # Demander l'horaires d'ouverture
+      - intent: ask_schedule
+      - action: utter_ask_schedule
+
+      # Demander si l'utilisateur veut d'autres informations
+      # L'utilisateur dit oui
+      - action: utter_another_question
+      - intent: affirmation
+      - action: utter_ask_question
+
+      # Demander le menu
+      - intent: ask_menu
+      - action: utter_ask_menu
+
+      # Demander si l'utilisateur veut d'autres informations
+      # L'utilisateur dit oui
+      - action: utter_another_question
+      - intent: affirmation
+      - action: utter_ask_question
+
+      # L'utilisateur décline
+      - or:
+        - intent: denial
+        - intent: goodbye
+      - action: utter_goodbye
+
+  # - story: Ask price fromage
+  #   steps:
+  #     # Saluer l'utilisateur
+  #     - intent: greeting
+  #     - action: utter_greeting
+  #     # Demander le prix de la pizza fromage
+  #     - intent: ask_price 
+  #     - slot_was_set:
+  #       - pizza: "trois fromages"
+  #     - action: utter_ask_price_fromage
+
+  # - story: Ask price montagnarde
+  #   steps:
+  #     # Saluer l'utilisateur
+  #     - intent: greeting
+  #     - action: utter_greeting
+  #     # Demander le prix de la pizza montagnarde
+  #     - intent: ask_price 
+  #     - slot_was_set:
+  #       - pizza: "montagnarde"
+  #     - action: utter_ask_price_montagnard

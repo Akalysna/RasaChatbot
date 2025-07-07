@@ -1,13 +1,30 @@
 version: "3.1"
 
 rules:
+  - rule: Greet user
+    steps:
+    - intent: greeting
+    - action: utter_greeting
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: Ask for menu
+    steps:
+    - intent: ask_menu
+    - action: utter_ask_menu
+    wait_for_user_input: false
+  
+  - rule: Ask for schedule
+    steps: 
+    - intent: ask_schedule
+    - action: utter_ask_schedule
+    wait_for_user_input: false
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - rule: Ask for pizza price
+    steps:
+    - intent: ask_price
+    - action: action_tell_pizza_price
+    wait_for_user_input: false
+
+  - rule: Place order
+    steps:
+    - intent: place_order
+    - action: utter_place_order

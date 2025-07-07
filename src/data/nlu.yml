@@ -17,7 +17,40 @@ nlu:
       - Merci au revoir
       - Au revoir et merci
       - Merci et bonne journnée 
+      
 
+  - intent: thanks
+    examples: |
+      - Merci
+      - Merci beaucoup
+      - Top
+      - Parfait
+      - Je te remercie
+      - Je vous remercie
+      - Merci pour cette réponse
+
+
+  - intent: affirmation
+    examples: |
+      - Oui
+      - Oui bien sûr
+      - Oui s'il vous plait
+      - Yep
+      - Yes
+      - Je veux bien
+
+  - intent: denial
+    examples: |
+      - Non
+      - Non merci
+      - Nope
+      - Non c'est bon
+      - Pas la peine
+      - Ce sera tout
+      - Je ne veux pas
+      - Cela ne m'intéresse pas
+      - Pas maintenant
+      
 
   - intent: ask_menu
     examples: |
@@ -36,6 +69,7 @@ nlu:
       - Combien coûte la pizza [chèvre-miel](pizza)
       - Prix de la pizza [montagnarde](pizza)
       - Quel est le prix de la pizza [calzone](pizza)
+      - Combien coute une [végétarienne](pizza)
 
 
   - intent: ask_schedule
