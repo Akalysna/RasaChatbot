@@ -12,9 +12,20 @@ intents:
   - denial
   - action_tell_pizza_price
   - action_tell_order
+  - ask_reservation
+  - give_name
+  - give_date
+  - give_hour
+  - give_number_participants
+  - confirm_reservation
+  - cancel_reservation
 
 entities:
   - pizza
+  - name
+  - date
+  - hour
+  - number_participants
 
 actions:
   - action_tell_pizza_price
@@ -27,6 +38,30 @@ slots:
     mappings:
       - type: from_entity
         entity: pizza
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+  date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: date
+  hour:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: hour
+  number_participants:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: number_participants
 
 responses:
   utter_greeting:
@@ -74,8 +109,32 @@ responses:
 
   utter_place_order:
   - text: |
-      Très bien, vous avez commandé une pizza {pizza}.
-      Merci pour votre commande !
+      Très bien, j'enregistre votre commande de pizza {pizza}.
+
+
+  # _______________________________________________
+
+  utter_ask_reservation:
+  - text: "Parfait ! Pour commencer la réservation, quel est votre nom s'il vous plaît ?"
+
+  utter_ask_date:
+  - text: "Merci {name} ! Pour quelle date souhaitez-vous réserver ?"
+
+  utter_ask_hour:
+  - text: "Et à quelle heure préféreriez-vous venir le {date} ?"
+
+  utter_ask_number_participants:
+  - text: "Combien de personnes serez-vous le {date} à {hour} ?"
+  
+  utter_confirm_reservation:
+    - text: |
+        Parfait ! Récapitulatif de votre réservation :
+        📋 Nom : {name}
+        📅 Date : {date}
+        🕐 Heure : {hour}
+        👥 Nombre de personnes : {number_participants}
+        
+        Confirmez-vous cette réservation ?
 
 session_config:
   session_expiration_time: 60

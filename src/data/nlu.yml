@@ -99,6 +99,62 @@ nlu:
       - J'aimerais passer commande pour une pizza [hawaïenne](pizza) et une pizza [végétarienne](pizza)
 
 
+  - intent: ask_reservation
+    examples: |
+      - Je voudrais réserver une table 
+      - Est ce que je peux réservé 
+      - J'aimerais réserver une table
+  
+  - intent: give_name
+    examples: |
+      - Je m'appelle [John](name)
+      - Je suis [John](name)
+      - Mon nom est [John](name)
+      - Moi c'est [John](name)
+  
+  - intent: give_date
+    examples: |
+      - le [lundi](date)
+      - [mardi](date)
+
+  - intent: give_hour
+    examples: |
+      - à [10h](hour)
+      - à [10h30](hour)
+      - à [22h](hour)
+      - à [22h34](hour)
+
+  - intent: give_number_participants
+    examples: |
+      - pour [2](number_participants)
+
+  - intent: cancel_reservation
+    examples: |
+      - Je souhaiterais annulé ma réservation
+      - Je veux annuler
+      - Annule ma réservation
+  
+  # _____________________________
+  
+  - regex: number_participants
+    examples: |
+      - ^[1-10]+$
+
+  - regex: hour
+    examples: |
+      - ^([01]?[0-9]|2[0-3])h([0-5][0-9])?$
+    
+  - lookup: date
+    examples: |
+      - lundi
+      - mardi
+      - mercredi
+      - jeudi
+      - vendredi
+      - samedi
+      - dimanche
+
+
   - lookup: pizza
     examples: |
       - margherita
